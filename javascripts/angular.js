@@ -27,44 +27,7 @@ var manualUppercase = function(s) {
 };
 
 
-// String#toLowerCase and String#toUpperCase don't produce correct results in browsers with Turkish
-// locale, for this reason we need to detect this case and redefine lowercase/uppercase methods
-// with correct but slower alternatives. See https://github.com/angular/angular.js/issues/11387
-if ('i' !== 'I'.toLowerCase()) {
-  lowercase = manualLowercase;
-  uppercase = manualUppercase;
-}
 
-
-var
-    msie,             // holds major version number for IE, or NaN if UA is not IE.
-    jqLite,           // delay binding since jQuery could be loaded after us.
-    jQuery,           // delay binding
-    slice             = [].slice,
-    splice            = [].splice,
-    push              = [].push,
-    toString          = Object.prototype.toString,
-    getPrototypeOf    = Object.getPrototypeOf,
-    ngMinErr          = minErr('ng'),
-
-    /** @name angular */
-    angular           = window.angular || (window.angular = {}),
-    angularModule,
-    uid               = 0;
-
-/**
- * documentMode is an IE-only property
- * http://msdn.microsoft.com/en-us/library/ie/cc196988(v=vs.85).aspx
- */
-msie = window.document.documentMode;
-
-
-/**
- * @private
- * @param {*} obj
- * @return {boolean} Returns true if `obj` is an array or array-like object (NodeList, Arguments,
- *                   String ...)
- */
 function isArrayLike(obj) {
 
   // `null`, `undefined` and `window` are not array-like
